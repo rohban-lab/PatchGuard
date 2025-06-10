@@ -14,6 +14,12 @@ Official PyTorch Implementation of "PatchGuard: Adversarially Robust Anomaly Det
 
 ## Preparation
 
+### Clone the Project
+```bash
+git clone https://github.com/rohban-lab/PatchGaurd.git
+cd PatchGuard
+```
+
 ### Download Datasets and Foreground Masks
 To prepare the datasets for training and evaluation, simply run the following command:
 ```bash

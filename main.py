@@ -20,14 +20,14 @@ def parse_args():
 
     parser.add_argument("--epochs", type=int, default=500)
     parser.add_argument("--train_batch_size", type=int, default=16)
-    parser.add_argument("--test_batch_size", type=int, default=4)
+    parser.add_argument("--test_batch_size", type=int, default=16)
     parser.add_argument("--lr", type=float, default=0.0008)
     parser.add_argument("--lr_decay_factor", type=float, default=0.0125)
     parser.add_argument("--lr_adaptor", type=float, default=0.0001)
     parser.add_argument("--wd", type=float, default=0.00001)
     parser.add_argument("--image_size", type=int, default=224)
     parser.add_argument("--num_workers", type=int, default=2)
-    parser.add_argument("--no_tqdm", action="store_false", dest='use_tqdm', default=False)
+    parser.add_argument("--no_tqdm", action="store_false", dest='use_tqdm', default=True)
 
     # feature extractor config
     parser.add_argument("--hf_path", type=str, default='vit_small_patch14_dinov2.lvd142m')
