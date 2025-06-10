@@ -245,13 +245,14 @@ class VisA(data.Dataset):
             if not os.path.exists(foreground_mask_dir):
                 self.normal_test.append(img_path)
                 img_count -= 1
-                                
+
         if split == 'train':
             for img_path in os.listdir(self.path_normal):
                 image_dir = os.path.join(self.path_normal, img_path)
-                if image_dir not in self.normal_test:
+                if img_path not in self.normal_test:
                     foreground_mask_dir = os.path.join(self.foreground_mask_path, img_path)
                     self.data.append((image_dir, None, foreground_mask_dir))
+
         elif split == 'test':
             for img_path in self.normal_test:
                 self.data.append((os.path.join(self.path_normal, img_path), None, None)) 
@@ -260,8 +261,9 @@ class VisA(data.Dataset):
                 image_dir = os.path.join(self.path_anomaly, img_path)
                 mask_dir = image_dir.replace("Images", "Masks")[:-3] + "png"
                 self.data.append((image_dir, mask_dir, None)) 
+                
             random.seed(seed)
-            random.shuffle(self.data)      
+            random.shuffle(self.data)
 
     def __len__(self):
         return len(self.data)
