@@ -15,6 +15,12 @@ Official PyTorch implementation of
 ## 🔍 Introduction
 > Anomaly Detection (AD) and Anomaly Localization (AL) are crucial in fields that demand high reliability, such as medical imaging and industrial monitoring. However, current AD and AL approaches are often susceptible to adversarial attacks due to limitations in training data, which typically include only normal, unlabeled samples. This study introduces PatchGuard, an adversarially robust AD and AL method that incorporates pseudo anomalies with localization masks within a Vision Transformer (ViT)-based architecture to address these vulnerabilities.We begin by examining the essential properties of pseudo anomalies, and follow it by providing theoretical insights into the attention mechanisms required to enhance the adversarial robustness of AD and AL systems. We then present our approach, which leverages Foreground-Aware Pseudo-Anomalies to overcome the deficiencies of previous anomaly-aware methods. Our method incorporates these crafted pseudo-anomaly samples into a ViT-based framework, with adversarial training guided by a novel loss function designed to improve model robustness, as supported by our theoretical analysis.Experimental results on well-established industrial and medical datasets demonstrate that PatchGuard significantly outperforms previous methods in adversarial settings, achieving performance gains of 53.2% in AD and 68.5% in AL, while also maintaining competitive accuracy in non-adversarial settings.
 
+
+---
+## ⚡ Colab Notebook
+
+ An interactive [Colab notebook](https://colab.research.google.com/drive/1Et4LPWpTfIsc3sS4y4nUlVRa1m_esKW3?usp=sharing) is provided for quick experimentation with PatchGuard.
+
 ---
 ## 🛠️ Setup
 
@@ -81,11 +87,6 @@ python main.py --mode visualization --class_name <CLASS_NAME> --dataset <DATASET
 
 
 *Note: Links to datasets, masks, and pretrained model weights will be updated here.*
-
----
-## ⚡ Colab Notebook
-
- An interactive [Colab notebook](https://colab.research.google.com/drive/1Et4LPWpTfIsc3sS4y4nUlVRa1m_esKW3?usp=sharing) is provided for quick experimentation with PatchGuard.
 
 ---
 ## 📚 Citation
