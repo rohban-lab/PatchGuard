@@ -8,7 +8,7 @@ Official PyTorch implementation of
 
 
 <p align="center">
-    <img src=motivation-fig.png width="500"> 
+    <img src=figs/motivation-fig.png width="500"> 
 </p>
 
 ---
@@ -26,7 +26,7 @@ Official PyTorch implementation of
 
 ### Clone the Project
 ```bash
-git clone https://github.com/rohban-lab/PatchGaurd.git
+git clone https://github.com/rohban-lab/PatchGuard.git
 cd PatchGuard
 ```
 
