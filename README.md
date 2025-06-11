@@ -35,7 +35,7 @@ To prepare the datasets for training and evaluation, simply run the following co
 ```bash
 python download_data.py --dataset <DATASET_NAME>
 ```
-The mask directory, named foreground_mask, will be placed alongside the training and evaluation image folders. For example:
+The mask directory, named foreground_mask, will be placed alongside the training images folder. For example:
 ```swift
 datasets/MVTec/toothbrush/train/
                             ├── good/
