@@ -85,9 +85,9 @@ python main.py --mode visualization --class_name <CLASS_NAME> --dataset <DATASET
 | BraTS2021 | [Link](http://braintumorsegmentation.org/)                     | [Link](https://drive.google.com/file/d/1viMafEbTR2HvMmWWxsrqd7yE9N3VR7FU/view?usp=drive_link)                  | -              |
 | HeadCT | [Link](https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage)                     | [Link](https://drive.google.com/file/d/1XdUgdMYrfAFydROTWRdj5S14UQbnu725/view?usp=drive_link)                  | -               |
 
-
-*Note: Links to datasets, masks, and pretrained model weights will be updated here.*
-
+> **Notes:**
+> - Links to datasets, masks, and pretrained model weights will be updated here.  
+> - *WFDD* and *DTD-Synthetic* are texture datasets in which the entire image area is considered foreground.
 ---
 ## 📚 Citation
 If you find this paper and repository helpful in your research, please cite us:
