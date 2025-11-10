@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 def my_forward_wrapper(attn_obj):
-    def my_forward(x):
+    def my_forward(x, attn_mask=None):
         B, N, C = x.shape
         qkv = attn_obj.qkv(x).reshape(B, N, 3, attn_obj.num_heads, C // attn_obj.num_heads).permute(2, 0, 3, 1, 4)
         q, k, v = qkv.unbind(0)   
