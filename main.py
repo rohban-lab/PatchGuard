@@ -18,7 +18,7 @@ def parse_args():
     parser.add_argument("--checkpoint_dir", type=str, default="./")
     parser.add_argument("--device", type=str, default="cuda", choices=["cuda", "cpu"])
 
-    parser.add_argument("--epochs", type=int, default=500)
+    parser.add_argument("--epochs", type=int, default=1000)
     parser.add_argument("--train_batch_size", type=int, default=16)
     parser.add_argument("--test_batch_size", type=int, default=16)
     parser.add_argument("--lr", type=float, default=0.0008)

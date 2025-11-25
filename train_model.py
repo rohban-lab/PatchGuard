@@ -11,6 +11,7 @@ from attack import pgd_attack
 from pseudo_anomaly import AnomalyGenerator
 
 import matplotlib.pyplot as plt
+import os 
 
 def set_seed(seed):
     random.seed(seed)
@@ -71,7 +72,7 @@ def train_step(model, anomaly_generator, train_loader, optimizer, criterion, use
     return total_loss / total_sample
 
 
-def train(model, anomaly_generator, train_loader, optimizer, lr_scheduler, criterion, use_reg, epochs, device, args):
+def train(model, anomaly_generator, train_loader, optimizer, lr_scheduler, criterion, use_reg, epochs, device, ckpt_path, args):
     model.train()
     
     epoch_iterator = tqdm(range(epochs), disable=not args.use_tqdm, desc="Epochs")
@@ -82,8 +83,16 @@ def train(model, anomaly_generator, train_loader, optimizer, lr_scheduler, crite
         epoch_iterator.set_postfix(loss=total_loss)
         log_loss(epoch, total_loss)
 
+        if (epoch % 2 == 0) and (epoch > int(epochs / 2)):
+            save_model(model, ckpt_path + f"/patchguard_epoch_{epoch}.pth")
+
+
 def run_train(args):
     set_seed(args.seed)
+
+    ckpt_path = os.path.join(args.checkpoint_dir, f"checkpoints_{args.dataset}_{args.class_name}_pgd{args.step_train}")
+    os.makedirs(ckpt_path, exist_ok=True)
+
 
     device = torch.device("cuda" if args.device != "cpu" and torch.cuda.is_available() else "cpu")
     model = PatchGuard(args, device).to(device)
@@ -97,6 +106,6 @@ def run_train(args):
 
     anomaly_generator = AnomalyGenerator(args.dataset, args.class_name, args.seed)  
 
-    train(model, anomaly_generator, train_loader, optimizer, lr_scheduler, criterion, args.use_reg, args.epochs, device, args)
+    train(model, anomaly_generator, train_loader, optimizer, lr_scheduler, criterion, args.use_reg, args.epochs, device, ckpt_path, args)
 
-    save_model(model, args.checkpoint_dir+f"patchguard_{args.dataset}_{args.class_name}.pth")
+    save_model(model, args.checkpoint_dir+f"patchguard_{args.dataset}_{args.class_name}_pgd{args.step_train}_last_epoch.pth")
