@@ -83,7 +83,7 @@ def train(model, anomaly_generator, train_loader, optimizer, lr_scheduler, crite
         epoch_iterator.set_postfix(loss=total_loss)
         log_loss(epoch, total_loss)
 
-        if (epoch % 2 == 0) and (epoch > int(epochs / 2)):
+        if (epoch % 20 == 0) and (epoch > int(epochs / 2)):
             save_model(model, ckpt_path + f"/patchguard_epoch_{epoch}.pth")
 
 
